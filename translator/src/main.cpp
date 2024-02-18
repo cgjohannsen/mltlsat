@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 using namespace mltl;
@@ -58,7 +59,12 @@ void parse_args (int argc, char *argv[])
 int main (int argc, char *argv[]) 
 {
     parse_args (argc, argv);
-    Formula *f = Formula (input.c_str ()).unique ();
+
+    std::ifstream instream(input);
+    std::stringstream buffer;
+    buffer << instream.rdbuf();
+
+    Formula *f = Formula (buffer.str().c_str()).unique ();
     assert (f != NULL);
     Translator t (f, mltl0);
     if (to_ltlf)

@@ -25,8 +25,8 @@ COMMA       \,
 
 EQUIV		"<->"
 IMPLIES		"->"
-OR			\|\|?
-AND			&&?
+OR			\|
+AND			&
 RELEASE     R
 WEAK_RELEASE    V
 UNTIL		U
