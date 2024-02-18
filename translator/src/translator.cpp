@@ -426,7 +426,7 @@
                 break;
             */
             case Formula::Release:
-                 res += "(and (> " + len + " " + int2str (f->interval ()->_left) + ") (forall ((" + quantify_var1 + " Int)) (implies (and (>= " + quantify_var1 + " " + "(+ " + loc + " " + int2str (f->interval ()->_left) + ")" + ") (<= " + quantify_var1 + " " + "(+ " + loc + " " + int2str (f->interval ()->_right) + ")" + ")) (or " + smtlib_expr (f->r_mf (), quantify_var1, new_len1) + " (exists ((" + quantify_var2 + " Int)) (and (and (>= " + quantify_var2 + " (+ " + loc + " " + int2str (f->interval ()->_left) + ")" + ") (< " + quantify_var2 + " " + quantify_var1 + ")) " + smtlib_expr (f->l_mf (), quantify_var2, new_len2) + "))))))";
+                 res += "(or (<= " + len + " " + int2str (f->interval ()->_left) + ") (forall ((" + quantify_var1 + " Int)) (implies (and (>= " + quantify_var1 + " " + "(+ " + loc + " " + int2str (f->interval ()->_left) + ")" + ") (<= " + quantify_var1 + " " + "(+ " + loc + " " + int2str (f->interval ()->_right) + ")" + ")) (or " + smtlib_expr (f->r_mf (), quantify_var1, new_len1) + " (exists ((" + quantify_var2 + " Int)) (and (and (>= " + quantify_var2 + " (+ " + loc + " " + int2str (f->interval ()->_left) + ")" + ") (< " + quantify_var2 + " " + quantify_var1 + ")) " + smtlib_expr (f->l_mf (), quantify_var2, new_len2) + "))))))";
                 break;
             
             default: //atoms
